@@ -1,12 +1,12 @@
-Step 1: Install JWT Authentication Package
+#Step 1: Install JWT Authentication Package
 
-First, we need to install the JWT authentication package: `composer require tymon/jwt-auth`  
-Publish the JWT Auth configuration: `php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"`  
-Generate the JWT secret key: `php artisan jwt:secret`  
+**First, we need to install the JWT authentication package:** `composer require tymon/jwt-auth`  
+**Publish the JWT Auth configuration:** `php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"`  
+**Generate the JWT secret key:** `php artisan jwt:secret`  
 
-Step 2: Update User Model
+#Step 2: Update User Model
 
-Update the User model to implement JWTSubject:  
+**Update the User model to implement JWTSubject:**  
 ```
 namespace App\Models;
 
@@ -39,10 +39,10 @@ class User extends Authenticatable implements JWTSubject
 }
 ```
 
-Step 3: Create Middleware for Role-Based Access
+#Step 3: Create Middleware for Role-Based Access
 
-Create middleware to check the user's role: `php artisan make:middleware RoleMiddleware`  
-In the generated middleware file (app/Http/Middleware/RoleMiddleware.php), define the middleware:  
+**Create middleware to check the user's role:** `php artisan make:middleware RoleMiddleware`  
+**In the generated middleware file (app/Http/Middleware/RoleMiddleware.php), define the middleware:**  
 ```
 namespace App\Http\Middleware;
 
@@ -65,9 +65,9 @@ class RoleMiddleware
 }
 ```
 
-Step 4: Register Middleware
+#Step 4: Register Middleware
 
-Register the middleware in app/Http/Kernel.php:  
+**Register the middleware in app/Http/Kernel.php:**  
 ```
 protected $routeMiddleware = [
     // ...
@@ -75,10 +75,10 @@ protected $routeMiddleware = [
 ];
 ```
 
-Step 5: Set Up AuthController
+#Step 5: Set Up AuthController
 
-Create the AuthController that handles user registration and login: `php artisan make:controller AuthController`  
-In the generated controller file (app/Http/Controllers/AuthController.php), define the methods for registration and login:  
+**Create the AuthController that handles user registration and login:** `php artisan make:controller AuthController`  
+**In the generated controller file (app/Http/Controllers/AuthController.php), define the methods for registration and login:**  
 ```
 namespace App\Http\Controllers;
 
@@ -128,9 +128,9 @@ class AuthController extends Controller
 }
 ```
 
-Step 6: Define Routes
+#Step 6: Define Routes
 
-Define routes in routes/api.php for user registration, login, and protected routes:
+**Define routes in routes/api.php for user registration, login, and protected routes:**
 ```
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
