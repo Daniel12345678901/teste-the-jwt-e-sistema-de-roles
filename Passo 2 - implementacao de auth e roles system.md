@@ -1,7 +1,8 @@
 # Step 1: Install JWT Authentication Package
 
 **First, we need to install the JWT authentication package:** `composer require tymon/jwt-auth`  
-**Publish the JWT Auth configuration:**  `php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"`  
+**Publish the JWT Auth configuration:**  
+`php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"`  
 **Generate the JWT secret key:** `php artisan jwt:secret`  
 
 # Step 2: Update User Model
